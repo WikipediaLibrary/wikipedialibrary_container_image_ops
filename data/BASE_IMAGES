@@ -1,0 +1,8 @@
+alpine:3.11
+debian:buster-slim
+mariadb:10
+memcached:latest
+mysql:5.7
+nginx:latest
+python:3.7-slim-buster
+python:3.8-buster
