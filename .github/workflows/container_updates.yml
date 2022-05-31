@@ -9,7 +9,7 @@ on:
     - cron: 00 00 * * * 
 
 jobs:
-  mirror:
+  docker_io:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
