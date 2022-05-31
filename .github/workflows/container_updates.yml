@@ -19,4 +19,6 @@ jobs:
           username: ${{ secrets.QUAYBOT_USERNAME }}
           password: ${{ secrets.QUAYBOT_PASSWORD }}
       - name: mirror docker.io images to quay.io/wikipedialibrary
-        run: bin/docker_mirror.sh
+        run: bin/docker_manage.sh docker.io mirror
+      - name: update packages in docker.io images and push to quay.io/wikipedialibrary with '-updated' tags
+        run: bin/docker_manage.sh docker.io update
