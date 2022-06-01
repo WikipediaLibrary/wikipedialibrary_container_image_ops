@@ -19,6 +19,17 @@ jobs:
           username: ${{ secrets.QUAYBOT_USERNAME }}
           password: ${{ secrets.QUAYBOT_PASSWORD }}
       - name: mirror docker.io images to quay.io/wikipedialibrary
-        run: bin/docker_manage.sh docker.io mirror
+        run: bin/docker_parent_images.sh docker.io mirror
       - name: update packages in docker.io images and push to quay.io/wikipedialibrary with '-updated' tags
-        run: bin/docker_manage.sh docker.io update
+        run: bin/docker_parent_images.sh docker.io update
+  quay_io_wikipedialibrary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/login-action@v2
+        with:
+          registry: quay.io
+          username: ${{ secrets.QUAYBOT_USERNAME }}
+          password: ${{ secrets.QUAYBOT_PASSWORD }}
+      - name: build and push quay.io/wikipedialibrary images
+        run: bin/docker_wikipedialibrary_images.sh
