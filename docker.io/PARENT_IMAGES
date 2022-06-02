@@ -7,3 +7,4 @@ mysql:5.7
 nginx:latest
 python:3.7-slim-buster
 python:3.8-buster
+python:3.9
