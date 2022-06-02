@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'quay.io/wikipedialibrary/**'
   # Run daily
   schedule:
     - cron: 00 00 * * * 
@@ -22,3 +24,14 @@ jobs:
         run: bin/docker_parent_images.sh docker.io mirror
       - name: update packages in docker.io images and push to quay.io/wikipedialibrary with '-updated' tags
         run: bin/docker_parent_images.sh docker.io update
+  quay_io_wikipedialibrary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker/login-action@v2
+        with:
+          registry: quay.io
+          username: ${{ secrets.QUAYBOT_USERNAME }}
+          password: ${{ secrets.QUAYBOT_PASSWORD }}
+      - name: build and push quay.io/wikipedialibrary images
+        run: bin/docker_wikipedialibrary_images.sh
