@@ -7,6 +7,7 @@ matomo:fpm-alpine
 mysql:5.7
 nginx:latest
 python:3.7-slim-buster
-python:3.11-bullseye
 python:3.8-buster
 python:3.9
+python:3.11-bullseye
+python:3.11-slim-bullseye
