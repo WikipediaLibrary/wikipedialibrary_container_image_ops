@@ -1,5 +1,5 @@
-FROM quay.io/wikipedialibrary/debian:buster-slim-updated as perl_build
-ENV PERL_VERSION=5.32.1
+FROM quay.io/wikipedialibrary/debian:trixie-slim-updated AS perl_build
+ENV PERL_VERSION=5.42.0
 # Base dependencies; split out to create cachable layer.
 RUN apt update; \
     apt install -y \
@@ -13,7 +13,7 @@ RUN apt update; \
     ./Configure -des -Dprefix=/opt/perl ; \
     make && make test && make install
 
-FROM quay.io/wikipedialibrary/debian:buster-slim-updated
+FROM quay.io/wikipedialibrary/debian:trixie-slim-updated
 COPY --from=perl_build /opt/perl /opt/perl
 
 ENTRYPOINT ["/opt/perl/bin/perl"]
