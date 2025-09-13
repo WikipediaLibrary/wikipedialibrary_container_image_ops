@@ -1,13 +1,8 @@
 alpine:3.11
 alpine:3.12
-debian:buster-slim
+debian:trixie-slim
 mariadb:10
 memcached:latest
-matomo:fpm-alpine
-mysql:5.7
 nginx:latest
-python:3.7-slim-buster
-python:3.8-buster
-python:3.9
 python:3.11-bullseye
 python:3.11-slim-bullseye
