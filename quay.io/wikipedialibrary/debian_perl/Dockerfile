@@ -1,5 +1,6 @@
 FROM quay.io/wikipedialibrary/debian:trixie-slim-updated AS perl_build
-ENV PERL_VERSION=5.42.0
+# The last version that supports variable-width negative look behind
+ENV PERL_VERSION=5.32.1
 # Base dependencies; split out to create cachable layer.
 RUN apt update; \
     apt install -y \
