@@ -6,3 +6,5 @@ memcached:latest
 nginx:latest
 python:3.11-bullseye
 python:3.11-slim-bullseye
+python:3.11-trixie
+python:3.11-slim-trixie
